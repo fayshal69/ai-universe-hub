@@ -66,7 +66,7 @@ const showDetailsModal = (modal) => {
         <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
             <div class="card card-compact bg-red-100 shadow-xl p-5 space-y-6 w-full lg:w-1/2">
                 <h4 class="text-2xl font-semibold">${modal?.description || 'Not defines'}</h4>
-                <div class="flex flex-wrap justify-between items-center gap-4">
+                <div class="flex flex-wrap justify-evenly items-center gap-4">
                     <div class="bg-white rounded-lg p-6">
                         <p class="font-bold text-green-500">${modal?.pricing[0]?.price || 'Not defines'}</p>
                     </div>
