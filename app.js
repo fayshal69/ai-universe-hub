@@ -22,6 +22,10 @@ const displayAiTools = (cards, seeAll) => {
     // loop through all the card
     cards.forEach(card => {
 
+        let list = '';
+        card.features.forEach((item, index) => {
+            list += `<p>${index + 1}. ${item || 'Not defined'}</p>`;
+        })
 
         const aiCard = document.createElement('div');
         aiCard.classList = `card bg-base-100 shadow-xl`;
@@ -30,9 +34,7 @@ const displayAiTools = (cards, seeAll) => {
             <div class="card-body">
                 <h2 class="card-title">Features</h2>
                 <div class="opacity-70" id="ol-container">
-                    <p>1. ${card.features[0]}</p>
-                    <p>2. ${card.features[1]}</p>
-                    <p>3. ${card.features[2]}</p>
+                    ${list}
                 </div>
                 <div class="divider"></div>
                 <div class="card-actions justify-between items-center">
