@@ -25,7 +25,7 @@ const displayAiTools = (cards, seeAll) => {
         let list = '';
         card.features.forEach((item, index) => {
             list += `<p>${index + 1}. ${item || 'Not defined'}</p>`;
-        })
+        });
 
         const aiCard = document.createElement('div');
         aiCard.classList = `card bg-base-100 shadow-xl`;
@@ -63,6 +63,14 @@ const openModal = async (id) => {
 }
 
 const showDetailsModal = (modal) => {
+
+    let modalNameList = '';
+    for(let featureName in modal.features) {
+        const item = modal.features[featureName].feature_name;
+        modalNameList += `<p>${item || 'Not defines'}</p>`;
+    }
+    
+
     console.log(modal);
     modalBox.innerHTML = `
         <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
@@ -83,9 +91,7 @@ const showDetailsModal = (modal) => {
                     <div>
                         <h3 class="text-2xl font-semibold mb-3">Features</h3>
                         <div class="space-y-2 opacity-70">
-                            <p>${modal?.features['1'].feature_name || 'Not defines'}</p>
-                            <p>${modal?.features['2'].feature_name || 'Not defines'}</p>
-                            <p>${modal?.features['3'].feature_name || 'Not defines'}</p>            
+                            ${modalNameList}           
                         </div>
                     </div>
                     <div>
